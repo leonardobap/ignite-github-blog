@@ -5,13 +5,14 @@ interface Issue {
   body: string;
   comments: number;
   created_at: string;
-  id: number;
+  number: number;
   title: string;
   url: string;
 }
 
 interface IssueContextType {
   issues: Issue[];
+  fetchIssues: (query?: string) => Promise<void>;
 }
 
 interface IssuesProviderProps {
@@ -23,11 +24,15 @@ export const IssuesContext = createContext({} as IssueContextType);
 export function IssuesProvider({ children }: IssuesProviderProps) {
   const [issues, setIssues] = useState<Issue[]>([]);
 
-  async function fetchIssues() {
+  async function fetchIssues(query?: string) {
+    let baseUrl = 'repo:leonardobap/ignite-github-blog is:issue';
+
+    if (query) baseUrl = `repo:leonardobap/ignite-github-blog is:issue ${query}`
+
     await api
       .get("/search/issues", {
         params: {
-          q: "repo:leonardobap/ignite-github-blog is:issue",
+          q: baseUrl,
         },
       })
       .then((result) => {
@@ -45,7 +50,7 @@ export function IssuesProvider({ children }: IssuesProviderProps) {
   }, []);
 
   return (
-    <IssuesContext.Provider value={{ issues }}>
+    <IssuesContext.Provider value={{ issues, fetchIssues }}>
       {children}
     </IssuesContext.Provider>
   );

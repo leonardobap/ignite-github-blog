@@ -33,19 +33,19 @@ export const UserStatsDisplay = styled.div`
   display: flex;
   flex-direction: column;
 
-  padding-top: 32px;
+  padding-top: 2rem;
 
   h1 {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
     line-height: 130%;
     color: ${(props) => props.theme["base-title"]};
 
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
   }
 
   p {
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 160%;
     color: ${(props) => props.theme["base-text"]};
   }
@@ -58,7 +58,7 @@ export const FontAwesomeIcons = styled.div`
   margin-top: 17%;
 
   div {
-    margin-right: 24px;
+    margin-right: 1.5rem;
     display: flex;
     align-items: center;
 
@@ -70,30 +70,30 @@ export const FontAwesomeIcons = styled.div`
       margin-right: 8px;
       color: ${(props) => props.theme["base-label"]};
 
-      width: 17px;
-      height: 17px;
+      width: 1.0625rem;
+      height: 1.0625rem;
     }
   }
 `;
 
 export const IconRedirectUser = styled.div`
-  margin-top: 32px;
+  margin-top: 2rem;
   display: flex;
   width: 100%;
   justify-content: flex-end;
 
-  margin-right: 32px;
-  height: 20px;
+  margin-right: 2rem;
+  height: 1.25rem;
 
   a {
     display: flex;
-    gap: 8px;
+    gap: 0.5rem;
     text-decoration: none;
     cursor: pointer;
   }
 
   P {
-    font-size: 12px;
+    font-size: 0.75rem;
     font-family: Nunito;
     line-height: 160%;
     font-weight: bold;

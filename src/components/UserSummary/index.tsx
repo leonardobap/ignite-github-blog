@@ -1,10 +1,4 @@
-import {
-  UserImage,
-  UserSummaryHeader,
-  UserStatsDisplay,
-  FontAwesomeIcons,
-  IconRedirectUser,
-} from "./styles";
+import { UserSummaryHeader, UserInfos, IconesContainer } from "./styles";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -57,15 +51,21 @@ export function UserSummary() {
 
   return (
     <UserSummaryHeader>
-      <UserImage>
-        <img src={user.avatar_url} alt="" />
-      </UserImage>
+      <img src={user.avatar_url} />
 
-      <UserStatsDisplay>
-        <h1>{user.name}</h1>
-        <p>{user.bio}</p>
+      <UserInfos>
+        <header>
+          <h1>{user.name}</h1>
 
-        <FontAwesomeIcons>
+          <button onClick={redirectUser}>
+            GITHUB
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+          </button>
+        </header>
+
+        <div>{user.bio}</div>
+
+        <IconesContainer>
           <div>
             <FontAwesomeIcon icon={faGithub} />
             <p>{user.login}</p>
@@ -78,17 +78,10 @@ export function UserSummary() {
 
           <div>
             <FontAwesomeIcon icon={faUserGroup} />
-            <p>{user.followers}</p>
+            <p>{user.followers} seguidores</p>
           </div>
-        </FontAwesomeIcons>
-      </UserStatsDisplay>
-
-      <IconRedirectUser onClick={() => redirectUser()}>
-        <a>
-          <p>GITHUB</p>
-          <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-        </a>
-      </IconRedirectUser>
+        </IconesContainer>
+      </UserInfos>
     </UserSummaryHeader>
   );
 }

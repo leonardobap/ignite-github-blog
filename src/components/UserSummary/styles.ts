@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const UserSummaryHeader = styled.div`
-  border: 1px solid red;
   width: 100%;
-  max-width: 864px;
-  height: 212px;
+  max-width: 54rem;
+  height: 13.25rem;
 
   margin-top: -5.8125rem;
 
@@ -15,96 +14,74 @@ export const UserSummaryHeader = styled.div`
   border-radius: 10px;
 
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-`;
 
-export const UserImage = styled.div`
-  padding: 32px 32px 32px 40px;
+  padding: 2rem 2.5rem;
+
+  gap: 2rem;
 
   img {
     width: 148px;
     height: 148px;
 
-    border: none;
     border-radius: 8px;
   }
 `;
 
-export const UserStatsDisplay = styled.div`
+export const UserInfos = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  width: 38.25rem;
 
-  padding-top: 2rem;
-
-  h1 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    line-height: 130%;
-    color: ${(props) => props.theme["base-title"]};
-
-    margin-bottom: 0.5rem;
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 20px;
   }
 
-  p {
-    font-size: 1rem;
+  button {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    border: none;
+
+    color: ${(props) => props.theme["blue"]};
+    cursor: pointer;
+
+    border-bottom: 1px solid transparent;
+
+    font-size: 12px;
+    font-weight: bold;
     line-height: 160%;
-    color: ${(props) => props.theme["base-text"]};
+
+    svg {
+      margin-left: 8px;
+    }
+  }
+
+  button:hover {
+    border-bottom: 1px solid ${(props) => props.theme["blue"]};
   }
 `;
 
-export const FontAwesomeIcons = styled.div`
+export const IconesContainer = styled.div`
   display: flex;
-  align-items: center;
-
-  margin-top: 17%;
 
   div {
-    margin-right: 1.5rem;
     display: flex;
     align-items: center;
-
-    p {
-      color: ${(props) => props.theme["base-subtitle"]};
-    }
+    margin-right: 1.5rem;
 
     svg {
       margin-right: 8px;
       color: ${(props) => props.theme["base-label"]};
-
-      width: 1.0625rem;
-      height: 1.0625rem;
     }
-  }
-`;
 
-export const IconRedirectUser = styled.div`
-  margin-top: 2rem;
-  display: flex;
-  width: 100%;
-  justify-content: flex-end;
-
-  margin-right: 2rem;
-  height: 1.25rem;
-
-  a {
-    display: flex;
-    gap: 0.5rem;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  P {
-    font-size: 0.75rem;
-    font-family: Nunito;
-    line-height: 160%;
-    font-weight: bold;
-  }
-
-  p,
-  svg {
-    color: ${(props) => props.theme["blue"]};
-  }
-
-  a:hover {
-    border-bottom: 1px solid ${(props) => props.theme["blue"]};
+    p {
+      color: ${(props) => props.theme["base-subtitle"]};
+      font-size: 1rem;
+      line-height: 160%;
+    }
   }
 `;

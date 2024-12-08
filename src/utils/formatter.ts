@@ -2,10 +2,16 @@ import { formatDistanceToNow, parseISO } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 export function dateFormatter(dateISO: string): string {
-  const formattedDate = formatDistanceToNow(parseISO(dateISO), {
-    addSuffix: true,
-    locale: ptBR,
-  });
+  try {
+    const parsedDate = parseISO(dateISO);
 
-  return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+    const formattedDate = formatDistanceToNow(parsedDate, {
+      addSuffix: true,
+      locale: ptBR,
+    });
+
+    return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+  } catch {
+    return "Erro ao formatar a data";
+  }
 }
